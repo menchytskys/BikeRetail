@@ -1,0 +1,89 @@
+body {
+    font-family: 'Karma', serif;
+    color: black;
+    background-color: #ae2948;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Pompiere', cursive;
+    color: black;
+}
+
+p {
+    font-family: 'Karma', serif;
+    font-size: 14px;
+ 
+}
+
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(/images/Bike.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+}
+
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 15px;
+    position: relative;
+}
+.logo {
+    font-family: 'Fredericka the Great', cursive;
+    color: white;
+    font-size: 96px;
+    text-transform: uppercase;
+    margin: auto;
+    padding-top: 70px;
+
+}
+h2 {
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.login-button {
+    margin: 50px;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    font-size: 42px;
+    font-weight: bold;
+    font-family: 'Pompiere', cursive;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+
+}
+
+.container-dots {
+    position: absolute;
+    top: 170%;
+    text-align: center;
+    background-image: url(/images/Dotts.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 480px;
+    height: 200px;
+}
+.login-button:hover {
+    background-color: black;
+    color: white;
+    border: 5px solid white;
+    cursor: pointer;
+}
