@@ -5,6 +5,7 @@ import com.epam.bikeRetail.entity.BikeStation;
 import com.epam.bikeRetail.entity.RentBike;
 import com.epam.bikeRetail.entity.Bike;
 import com.epam.bikeRetail.entity.User;
+import com.epam.bikeRetail.exception.ConnectionException;
 import com.epam.bikeRetail.exception.DAOException;
 import com.epam.bikeRetail.exception.ServiceException;
 import com.epam.bikeRetail.utils.PasswordEncoder;
@@ -28,7 +29,7 @@ public class UserService {
      * @throws ServiceException if execution of method is failed.
      */
     public User login(String login, String password) throws ServiceException {
-        User user = null;
+        User user;
 
         try(DAOCreator daoCreator = new DAOCreator()) {
 
@@ -36,7 +37,7 @@ public class UserService {
             password = PasswordEncoder.encode(password);
 
             user = userDAO.findUserByLoginAndPassword(login, password);
-        }catch ( DAOException e){
+        }catch ( DAOException | ConnectionException e){
             throw new ServiceException("Exception detected.", e);
         }
 
@@ -50,14 +51,14 @@ public class UserService {
      * @throws ServiceException if execution of method is failed.
      */
     public List<User> showAllUsers() throws ServiceException{
-        List<User> users = null;
+        List<User> users;
 
         try(DAOCreator daoCreator = new DAOCreator()){
 
             UserDAO userDAO = daoCreator.getUserDAO();
 
             users = userDAO.getAll();
-        }catch (DAOException e){
+        }catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
 
@@ -71,7 +72,7 @@ public class UserService {
             UserDAO userDAO = daoCreator.getUserDAO();
 
             userDAO.update(user);
-        } catch (DAOException e){
+        } catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
 
@@ -99,17 +100,17 @@ public class UserService {
 //            userDAO.updateUserIsTakeBike(userIdStr, 1);
 
             daoCreator.commitTransaction();
-        } catch (DAOException e){
+        } catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
     }
 
     /**
-     * Method
+     * Method return bike to the station, take money from user for rent and update user status.
      *
-     * @param stationId
-     * @param user
-     * @throws ServiceException
+     * @param stationId Station Id where user want to return bike.
+     * @param user Entity.
+     * @throws ServiceException if execution of method is failed.
      */
     public void returnBike(String stationId, User user) throws ServiceException {
 
@@ -145,7 +146,7 @@ public class UserService {
             rentBikeDAO.delete(rentBike);
 
             daoCreator.commitTransaction();
-        } catch (DAOException e){
+        } catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
     }

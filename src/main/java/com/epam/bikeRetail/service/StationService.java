@@ -2,6 +2,7 @@ package com.epam.bikeRetail.service;
 import com.epam.bikeRetail.dao.DAOCreator;
 import com.epam.bikeRetail.dao.StationDAO;
 import com.epam.bikeRetail.entity.Station;
+import com.epam.bikeRetail.exception.ConnectionException;
 import com.epam.bikeRetail.exception.DAOException;
 import com.epam.bikeRetail.exception.ServiceException;
 
@@ -29,7 +30,7 @@ public class StationService {
             StationDAO stationDAO = daoCreator.getStationDAO();
 
             stations = stationDAO.getAll();
-        }catch (DAOException e){
+        }catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
 
@@ -51,7 +52,7 @@ public class StationService {
 
             int stationId = Integer.parseInt(id);
             station = stationDAO.getById(stationId);
-        } catch (DAOException e){
+        } catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
 

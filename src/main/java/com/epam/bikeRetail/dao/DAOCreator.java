@@ -1,5 +1,6 @@
 package com.epam.bikeRetail.dao;
 
+import com.epam.bikeRetail.exception.ConnectionException;
 import com.epam.bikeRetail.exception.DAOException;
 import com.epam.bikeRetail.pool.ConnectionPool;
 
@@ -18,7 +19,7 @@ public class DAOCreator implements AutoCloseable {
 
     private Connection connection;
 
-    public DAOCreator() throws DAOException {
+    public DAOCreator() throws ConnectionException {
         connectionPool = ConnectionPool.getInstance();
         connection = connectionPool.getConnection();
     }
@@ -27,9 +28,8 @@ public class DAOCreator implements AutoCloseable {
      * Method give access to UserDAO
      *
      * @return UserDAO
-     * @throws DAOException when can't create UserDAO
      */
-    public UserDAO getUserDAO() throws DAOException {
+    public UserDAO getUserDAO() {
         return new UserDAO(connection);
     }
 
@@ -37,9 +37,8 @@ public class DAOCreator implements AutoCloseable {
      * Method give access to UserDAO
      *
      * @return RentBikeDAO
-     * @throws DAOException when can't create RentBikeDAO
      */
-    public RentBikeDAO getRentBikeDAO() throws DAOException {
+    public RentBikeDAO getRentBikeDAO() {
         return new RentBikeDAO(connection);
     }
 
@@ -47,9 +46,8 @@ public class DAOCreator implements AutoCloseable {
      * Method give access to StationDAO
      *
      * @return StationDAO
-     * @throws DAOException when can't create StationDAO
      */
-    public StationDAO getStationDAO() throws DAOException {
+    public StationDAO getStationDAO()  {
         return new StationDAO(connection);
     }
 
@@ -57,9 +55,8 @@ public class DAOCreator implements AutoCloseable {
      * Method give access to BikeDAO
      *
      * @return BikeDAO
-     * @throws DAOException when can't create BikeDAO
      */
-    public BikeDAO getBikeDAO() throws DAOException {
+    public BikeDAO getBikeDAO()  {
         return new BikeDAO(connection);
     }
 
@@ -67,9 +64,8 @@ public class DAOCreator implements AutoCloseable {
      * Method give access to BikeDAO
      *
      * @return BikeDAO
-     * @throws DAOException when can't create BikeDAO
      */
-    public BikeStationDAO getBikeStationDAO() throws DAOException {
+    public BikeStationDAO getBikeStationDAO()  {
         return new BikeStationDAO(connection);
     }
 

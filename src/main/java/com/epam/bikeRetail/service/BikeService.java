@@ -5,6 +5,7 @@ import com.epam.bikeRetail.dao.BikeStationDAO;
 import com.epam.bikeRetail.dao.DAOCreator;
 import com.epam.bikeRetail.entity.BikeStation;
 import com.epam.bikeRetail.entity.Bike;
+import com.epam.bikeRetail.exception.ConnectionException;
 import com.epam.bikeRetail.exception.DAOException;
 import com.epam.bikeRetail.exception.ServiceException;
 
@@ -20,19 +21,20 @@ public class BikeService {
     /**
      * Method find all bikes in dataBase.
      *
-     * @param id
-     * @return
-     * @throws ServiceException
+     * @param id Station id.
+     * @return List of bikes on station.
+     * @throws ServiceException when SQLException and DAOException detected.
      */
     public List<Bike> showBikes(String id) throws ServiceException{
-        List<Bike> bikes = null;
+        List<Bike> bikes;
 
         try(DAOCreator daoCreator = new DAOCreator()) {
 
             BikeDAO bikeDAO = daoCreator.getBikeDAO();
 
-            bikes = bikeDAO.getAllById(Integer.parseInt(id));
-        }catch (DAOException e){
+            int stationId = Integer.parseInt(id);
+            bikes = bikeDAO.getAllById(stationId);
+        }catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
 
@@ -52,11 +54,11 @@ public class BikeService {
             bikeStation.setStationId(Integer.parseInt(stationId));
             bikeStation.setBikeId(bike.getId());
 
-            bikeStation = bikeStationDAO.insert(bikeStation);
+            bikeStationDAO.insert(bikeStation);
 
             daoCreator.commitTransaction();
 
-        } catch (DAOException e){
+        } catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
     }
@@ -76,7 +78,7 @@ public class BikeService {
             bikeDAO.delete(bike);
 
             daoCreator.commitTransaction();
-        } catch (DAOException e){
+        } catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
     }
@@ -87,7 +89,7 @@ public class BikeService {
             BikeStationDAO bikeStationDAO = daoCreator.getBikeStationDAO();
 
             bikeStationDAO.update(bikeStation);
-        }catch (DAOException e){
+        }catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
     }

@@ -70,7 +70,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: black;
     color: white;
-    border: 0px solid white;
+    border: 0 solid white;
     cursor: pointer;
 }
 
@@ -125,12 +125,12 @@ input[type="button"]  {
 input[type="button"]:hover {
     background-color: black;
     color: white;
-    border: 0px solid white;
+    border: 0 solid white;
     cursor: pointer;
 }
 
 form {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 th {
@@ -174,4 +174,28 @@ td>form>input[type="submit"]:hover {
     background-color: #212529;
     color: white;
 }
+
+nav {
+    background-color: #ae2948;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    display: block;
+    text-decoration: none;
+    outline: none;
+    transition: .4s ease-in-out;
+}
+.topmenu > li {
+    display: inline-block;
+    position: relative;
+}
+nav>button {
+    float: right;
+}
+
 
