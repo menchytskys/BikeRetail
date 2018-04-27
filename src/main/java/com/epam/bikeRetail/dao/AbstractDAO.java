@@ -196,8 +196,8 @@ public abstract class AbstractDAO<T extends Identifiable> implements GenericDAO<
         return executeQuery(getSelectQuery());
     }
 
-    @Override
-    public List<T> getAllById(Integer id) throws DAOException {
-        return executeQuery(getSelectQuery(), id);
-    }
+//    @Override
+//    public List<T> getAllById(Integer id) throws DAOException {
+//        return executeQuery(getSelectQuery(), id);
+//    }
 }

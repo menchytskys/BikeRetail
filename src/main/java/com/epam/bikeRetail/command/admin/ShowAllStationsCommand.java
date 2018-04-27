@@ -11,6 +11,8 @@ import com.epam.bikeRetail.service.StationService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+//delete
+
 public class ShowAllStationsCommand implements ActionCommand {
 
     private final static String STATIONS_PAGE = "path.page.stations";

@@ -65,17 +65,31 @@ public class UserService {
         return users;
     }
 
-    public void changeUserStatus(User user) throws ServiceException{
+    /**
+     * Method change user status.
+     *
+     * @param id user id.
+     * @throws ServiceException if execution of method is failed.
+     */
+    public void changeUserStatus(String id) throws ServiceException{
+        int userId = Integer.parseInt(id);
 
         try(DAOCreator daoCreator = new DAOCreator()){
 
             UserDAO userDAO = daoCreator.getUserDAO();
 
-            userDAO.update(user);
+            User user = userDAO.getById(userId);
+
+            if (user.getActiveStatus() == 1) {
+                user.setActiveStatus(0);
+                userDAO.update(user);
+            } else {
+                user.setActiveStatus(1);
+                userDAO.update(user);
+            }
         } catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }
-
     }
 
     /**

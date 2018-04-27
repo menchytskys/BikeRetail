@@ -10,9 +10,9 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class MoveBikeToAnotherStation implements ActionCommand {
+public class MoveBikeToAnotherStationCommand implements ActionCommand {
 
-    private final Logger LOGGER = LogManager.getLogger(MoveBikeToAnotherStation.class.getName());
+    private final Logger LOGGER = LogManager.getLogger(MoveBikeToAnotherStationCommand.class.getName());
     private final static String ADMIN_STATIONS_PAGE = "path.page.adminStation";
     private final static String ERROR_PAGE = "path.page.error";
     private static final String BIKE_ID = "bikeId";
@@ -20,7 +20,7 @@ public class MoveBikeToAnotherStation implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-        String page = null;
+        String page;
         String bikeId = request.getParameter(BIKE_ID);
         String toStationId = request.getParameter(TO_STATION_ID);
 

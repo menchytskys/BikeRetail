@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class BikeService {
     /**
-     * Method find all bikes in dataBase.
+     * Method find bikes by station id in dataBase.
      *
      * @param id Station id.
      * @return List of bikes on station.
@@ -34,6 +34,27 @@ public class BikeService {
 
             int stationId = Integer.parseInt(id);
             bikes = bikeDAO.getAllById(stationId);
+        }catch (DAOException | ConnectionException e){
+            throw new ServiceException("SQLException and DAOException detected", e);
+        }
+
+        return bikes;
+    }
+
+    /**
+     * Method find all bikes in dataBase.
+     *
+     * @return List of bikes on station.
+     * @throws ServiceException when SQLException and DAOException detected.
+     */
+    public List<Bike> showAllBikes() throws ServiceException{
+        List<Bike> bikes;
+
+        try(DAOCreator daoCreator = new DAOCreator()) {
+
+            BikeDAO bikeDAO = daoCreator.getBikeDAO();
+
+            bikes = bikeDAO.getAll();
         }catch (DAOException | ConnectionException e){
             throw new ServiceException("SQLException and DAOException detected", e);
         }

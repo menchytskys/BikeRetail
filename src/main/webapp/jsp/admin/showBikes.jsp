@@ -1,5 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -30,14 +30,32 @@
         </ul>
     </nav>
 </div>
-<h1>${station.nameStation}</h1>
+
+    <form name="addBikeForm" method="POST" action="${pageContext.request.contextPath}/Controller">
+        <input type="hidden" name="command" value="add_bike" />
+        Brand:<br/>
+        <input type="text" name="brand" value="" />
+        <br/> Model:<br/>
+        <input type="text" name="model" value="" />
+        <br/> Price on Hour: <br/>
+        <input type="text" name="priceOnHour" value="" />
+        <br/>
+        <select name="station">
+            <option value="1">Station red</option>
+            <option value="2">Station green</option>
+            <option value="3">Station blue</option>
+            <option value="4">Station black</option>
+        </select>
+        <input type="submit" value="add bike" />
+        <%--<a href="${pageContext.request.contextPath}/jsp/admin/admin.jsp">back</a>--%>
+    </form>
+
 <table>
     <thead>
     <tr>
         <th>bike brand</th>
         <th>bike model</th>
         <th>price on hour</th>
-        <th></th>
         <th></th>
     </tr>
     </thead>
@@ -55,21 +73,22 @@
                     <input type="submit" value="delete bike" />
                 </form>
             </td>
-            <td>
-                <form name="MoveBikeForm" method="POST" action="${pageContext.request.contextPath}/Controller">
-                    <input type="hidden" name="command" value="move_bike_to_another_station" />
-                    <br/>
-                    <select name="station">
-                        <option value="1">Station red</option>
-                        <option value="2">Station green</option>
-                        <option value="3">Station blue</option>
-                        <option value="4">Station black</option>
-                    </select>
-                    <br/>
-                    <input type="hidden" name="bikeId" value="${bike.id}">
-                    <input type="submit" value="move to another station" />
-                </form>
-            </td>
+
+            <%--<td>--%>
+                <%--<form name="MoveBikeForm" method="POST" action="${pageContext.request.contextPath}/Controller">--%>
+                    <%--<input type="hidden" name="command" value="move_bike_to_another_station" />--%>
+                    <%--<br/>--%>
+                    <%--<select name="station">--%>
+                        <%--<option value="1">Station red</option>--%>
+                        <%--<option value="2">Station green</option>--%>
+                        <%--<option value="3">Station blue</option>--%>
+                        <%--<option value="4">Station black</option>--%>
+                    <%--</select>--%>
+                    <%--<br/>--%>
+                    <%--<input type="hidden" name="bikeId" value="${bike.id}">--%>
+                    <%--<input type="submit" value="move to another station" />--%>
+                <%--</form>--%>
+            <%--</td>--%>
         </tr>
     </c:forEach>
     </tbody>

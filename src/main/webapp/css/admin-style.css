@@ -174,28 +174,39 @@ td>form>input[type="submit"]:hover {
     background-color: #212529;
     color: white;
 }
-
 nav {
-    background-color: #ae2948;
+    margin: 0;
+    padding: 10px 15px;
+    list-style: none;
+    border: 1px solid #e5e5e5;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-nav a {
-    display: block;
-    text-decoration: none;
-    outline: none;
-    transition: .4s ease-in-out;
-}
-.topmenu > li {
+nav>ul>li {
     display: inline-block;
     position: relative;
 }
-nav>button {
-    float: right;
+
+
+nav a {
+    display: block;
+    padding: 8px 10px;
+    color: #0088cc;
 }
+
+nav .sub-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #fcf8e3;
+    position: absolute;
+    width: 150px;
+    left: 1px;
+    display: none;
+}
+
+nav >ul> li:hover .sub-menu {
+    display: block;
+}
+
 
 

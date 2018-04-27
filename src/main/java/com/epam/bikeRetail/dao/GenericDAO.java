@@ -37,8 +37,4 @@ public interface GenericDAO<T extends Identifiable> {
      */
      List<T> getAll() throws DAOException;
 
-    /**
-     *  Get list of objects which are rows in DB
-     */
-     List<T> getAllById(Integer key) throws DAOException;
 }

@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
@@ -10,42 +9,62 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/admin-style.css">
     <title>BIKETRO Admin Page</title>
 </head>
-<body>
-<h1>Admin Page</h1>
-<hr/>
-<nav>
-    <ul class="topmenu">
-        <li>Stations
-            <ul>
-                <li><a href="">Red</a></li>
-                <li><a href="">Green</a></li>
-                <li><a href="">Blue</a></li>
-                <li><a href="">Black</a></li>
-            </ul>
-        </li>
-        <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_users">Users</a></li>
-        <li><a href="">Bikes</a></li>
-    </ul>
-    <button><a href="Controller?command=logout">log out</a></button>
-</nav>
 
-<%--<div>--%>
-    <%--<form name="ShowAllStationForm" method="POST" action="${pageContext.request.contextPath}/Controller">--%>
-        <%--<input type="hidden" name="command" value="show_all_stations" />--%>
-        <%--<input type="submit" value="show stations" />--%>
-    <%--</form>--%>
-    <%--<form name="ShowAllUsersForm" method="POST" action="${pageContext.request.contextPath}/Controller">--%>
-        <%--<input type="hidden" name="command" value="show_all_users" />--%>
-        <%--<input type="submit" value="show users" />--%>
-    <%--</form>--%>
-    <%--<form name="ShowAllUsersForm" method="POST" action="${pageContext.request.contextPath}/Controller">--%>
-        <%--<input type="hidden" name="command" value="show_all_bikes" />--%>
-        <%--<input type="submit" value="show users" />--%>
-    <%--</form>--%>
-    <%--<br/>--%>
-    <%--<a href="/jsp/admin/addBike.jsp">Add bike</a>--%>
-    <%--<br/>--%>
-<%--</div>--%>
-<%--<a href="Controller?command=logout">Logout</a>--%>
+<body>
+<div class="container-center">
+    <h1>Admin Page</h1>
+    <nav>
+        <ul>
+            <li><a href="${pageContext.request.contextPath}/jsp/admin/admin.jsp">Stations</a>
+                <ul class='sub-menu'>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=1">Red</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=2">Green</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=3">Blue</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=4">Black</a></li>
+                </ul>
+            </li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_users">Users</a></li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_bikes">Bikes</a></li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=logout">log out</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body bg-danger">
+                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_user_station&id=1">Red station</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body bg-success">
+                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_user_station&id=2">Green station</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body bg-info">
+                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_user_station&id=3">Blue station</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body bg-dark">
+                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_user_station&id=4">Black station</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -8,26 +8,28 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/admin-style.css">
-    <title>BIKETRO ShowUsers Page</title>
+    <title>BIKETRO Admin Page</title>
 </head>
+
 <body>
-<h1>Admin Page</h1>
-<hr/>
-<nav>
-    <ul>
-        <li>Stations
-            <ul>
-                <li><a href="">Red</a></li>
-                <li><a href="">Green</a></li>
-                <li><a href="">Blue</a></li>
-                <li><a href="">Black</a></li>
-            </ul>
-        </li>
-        <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_users">Users</a></li>
-        <li><a href="">Bikes</a></li>
-    </ul>
-    <button><a href="Controller?command=logout">log out</a></button>
-</nav>
+<div class="container-center">
+    <h1>Admin Page</h1>
+    <nav>
+        <ul>
+            <li><a href='${pageContext.request.contextPath}/jsp/admin/admin.jsp'>Stations</a>
+                <ul class='sub-menu'>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=1">Red</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=2">Green</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=3">Blue</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=4">Black</a></li>
+                </ul>
+            </li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_users">Users</a></li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_bikes">Bikes</a></li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=logout">log out</a></li>
+        </ul>
+    </nav>
+</div>
 
 <table>
     <thead>

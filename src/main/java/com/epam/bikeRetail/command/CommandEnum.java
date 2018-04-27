@@ -34,6 +34,11 @@ public enum CommandEnum {
             this.command = new ShowAllStationsCommand();
         }
     },
+    SHOW_ALL_BIKES{
+        {
+            this.command = new ShowAllBikesCommand();
+        }
+    },
     ADD_BIKE{
         {
             this.command = new AddBikeCommand();
@@ -56,7 +61,7 @@ public enum CommandEnum {
     },
     MOVE_BIKE_TO_ANOTHER_STATION{
         {
-            this.command = new MoveBikeToAnotherStation();
+            this.command = new MoveBikeToAnotherStationCommand();
         }
     },
     SHOW_ALL_USERS{
