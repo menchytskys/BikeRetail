@@ -13,19 +13,30 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 
+/**
+ * Command to add bike.
+ *
+ * @author Stepan Menchytsky
+ * @see ActionCommand
+ * @see HttpServletRequest
+ */
 public class AddBikeCommand implements ActionCommand {
     private final Logger LOGGER = LogManager.getLogger(AddBikeCommand.class.getName());
-    private final static String ADD_BIKE_PAGE = "path.page.addBike";
-    private final static String ERROR_PAGE = "path.page.error";
+    private static final String ADD_BIKE_PAGE = "path.page.addBike";
+    private static final String ERROR_PAGE = "path.page.error";
+    private static final String DATA_NOT_VALID_MESSAGE_PATH = "message.notValid";
+    private static final String BRAND = "brand";
+    private static final String MODEL = "model";
+    private static final String STATION_ID = "station";
+    private static final String PRICE_ON_HOUR = "priceOnHour";
+    private static final String RESULT_ATTRIBUTE = "result";
 
-    private final static String BRAND = "brand";
-    private final static String MODEL = "model";
-    private final static String STATION_ID = "station";
-    private final static String PRICE_ON_HOUR = "priceOnHour";
-    private final static String RESULT_ATTRIBUTE = "result";
-    private final static String REGISTRATION_FAILED_MESSAGE_PATH = "message.addBikeError";
-    private final static String DATA_NOT_VALID_MESSAGE_PATH = "message.notValid";
-
+    /**
+     * Implementation of command for add bike.
+     *
+     * @param request HttpServletRequest object.
+     * @return redirect page.
+     */
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
@@ -37,7 +48,8 @@ public class AddBikeCommand implements ActionCommand {
             String bikeStationId = request.getParameter(STATION_ID);
 
             BikeDataValidator bikeDataValidator = new BikeDataValidator();
-            boolean isBikeDataValid = bikeDataValidator.checkData(brand, model, bikePriceOnHour);
+            boolean isBikeDataValid = bikeDataValidator.checkData(brand,
+                    model, bikePriceOnHour);
 
             if (isBikeDataValid) {
                 Bike bike = new Bike();
@@ -51,7 +63,8 @@ public class AddBikeCommand implements ActionCommand {
 
                 page = ConfigurationManager.getProperty(ADD_BIKE_PAGE);
             } else {
-                request.setAttribute(RESULT_ATTRIBUTE, MessageManager.getProperty(DATA_NOT_VALID_MESSAGE_PATH));
+                String property = MessageManager.getProperty(DATA_NOT_VALID_MESSAGE_PATH);
+                request.setAttribute(RESULT_ATTRIBUTE, property);
             }
         } catch (ServiceException e) {
             LOGGER.error("Service exception detected.", e);

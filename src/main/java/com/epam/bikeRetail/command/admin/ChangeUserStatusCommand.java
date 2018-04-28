@@ -9,12 +9,25 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Command to change user status.
+ *
+ * @author Stepan Menchytsky
+ * @see ActionCommand
+ * @see HttpServletRequest
+ */
 public class ChangeUserStatusCommand implements ActionCommand {
     private final Logger LOGGER = LogManager.getLogger(ChangeUserStatusCommand.class.getName());
+    private static final  String USERS_PAGE = "/Controller?command=show_all_users";
     private static final String PARAM_USER = "userId";
     private static final String ERROR_PAGE = "path.page.error";
-    private final static String USERS_PAGE = "/Controller?command=show_all_users";
 
+    /**
+     * Implementation of command for change user status.
+     *
+     * @param request HttpServletRequest object.
+     * @return redirect page.
+     */
     @Override
     public String execute(HttpServletRequest request) {
         String page;
@@ -27,12 +40,10 @@ public class ChangeUserStatusCommand implements ActionCommand {
             userService.changeUserStatus(id);
 
             page = USERS_PAGE;
-        } catch (ServiceException e){
+        } catch (ServiceException e) {
             LOGGER.error("Service exception detected.", e);
             return ConfigurationManager.getProperty(ERROR_PAGE);
         }
-
-
         return page;
     }
 }
