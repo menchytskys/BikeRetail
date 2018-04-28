@@ -75,14 +75,14 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div id="mountain" class="container tab-pane active">
-                <img src="images/Mountain_bike.png" width='50%'> <br>
+                <img src="images/Mountain_bike.png" width='70%'> <br>
             </div>
             <div id="city" class="container tab-pane fade">
-                <img src="images/City_bike.png" width="50%">
+                <img src="images/City_bike.png" width="70%">
                 <br>
             </div>
             <div id="foldable" class="container tab-pane fade">
-                <img src="images/Foldable_bike.png" width="50%">
+                <img src="images/Foldable_bike.png" width="70%">
                 <br>
             </div>
         </div>
