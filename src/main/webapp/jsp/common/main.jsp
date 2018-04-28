@@ -19,7 +19,7 @@
 <header>
     <div>
         <nav class='container'>
-            <a class='logo-box' href='biketro.by'>
+            <a class='logo-box' href='#'>
                 <h1 class="logo">BIKEtro</h1>
                 <h2>Welcome to the Bike Retail</h2>
             </a>

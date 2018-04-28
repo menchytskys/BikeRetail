@@ -15,7 +15,7 @@
     <h1>Admin Page</h1>
     <nav>
         <ul>
-            <li><a href="${pageContext.request.contextPath}/jsp/admin/admin.jsp">Stations</a>
+            <li class='active'><a href="${pageContext.request.contextPath}/jsp/admin/admin.jsp">Stations</a>
                 <ul class='sub-menu'>
                     <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=1">Red</a></li>
                     <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=2">Green</a></li>
@@ -35,14 +35,14 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body bg-danger">
-                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_user_station&id=1">Red station</a></button>
+                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=1">Red station</a></button>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body bg-success">
-                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_user_station&id=2">Green station</a></button>
+                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=2">Green station</a></button>
                 </div>
             </div>
         </div>
@@ -53,14 +53,14 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body bg-info">
-                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_user_station&id=3">Blue station</a></button>
+                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=3">Blue station</a></button>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body bg-dark">
-                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_user_station&id=4">Black station</a></button>
+                    <button><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=4">Black station</a></button>
                 </div>
             </div>
         </div>
@@ -68,3 +68,4 @@
 </div>
 </body>
 </html>
+

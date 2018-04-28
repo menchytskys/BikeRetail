@@ -25,7 +25,7 @@
                 </ul>
             </li>
             <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_users">Users</a></li>
-            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_bikes">Bikes</a></li>
+            <li class='active'><a href="${pageContext.request.contextPath}/Controller?command=show_all_bikes">Bikes</a></li>
             <li><a href="${pageContext.request.contextPath}/Controller?command=logout">log out</a></li>
         </ul>
     </nav>

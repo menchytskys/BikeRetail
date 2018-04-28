@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Open+Sans+Condensed:300,300i,700&subset=cyrillic,cyrillic-ext');
+
+body {
+    background-color: #ECEFF1;
+}
+
+/*@font-face {*/
+    /*font-family: CabinSketch;*/
+    /*src: url(fonts/CabinSketch-Regular.eot);*/
+    /*src: local(CabinSketch), url(fonts/CabinSketch-Bold.ttf);*/
+    /*font-weight: bold;*/
+    /*font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+    /*font-family: CabinSketch;*/
+    /*src: url(fonts/CabinSketch-Regular.eot);*/
+    /*src: local(CabinSketch), url(fonts/CabinSketch-Regular.ttf);*/
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+    /*font-family: OpenSansCondensed;*/
+    /*src: url(fonts/OpenSansCondensed-Bold.ttf);*/
+    /*font-weight: bold;*/
+    /*font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+    /*font-family: OpenSansCondensed;*/
+    /*src: url(fonts/OpenSansCondensed-Light.ttf);*/
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+    /*font-family: OpenSansCondensed;*/
+    /*src: url(fonts/OpenSansCondensed-LightItalic.ttf);*/
+    /*font-weight: normal;*/
+    /*font-style: italic;*/
+/*}*/
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #263238;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: -20px;
+    padding-left: 4px;
+}
+
+h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #cf373c;
+}
+
+h4 {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #cf373c; 
+}
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+    color: #263238;
+}
+
+
+
+.logo {
+    font-family: 'Cabin Sketch', sans-serif;
+    font-size: 76px;
+    font-weight: bold;
+    color: #cf373c;
+    margin: 0px;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 20%;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    text-align: center;
+}
+.bike-tabs-container {
+    margin-top: 20px;
+
+}
+
+.nav-tabs .nav-link.active {
+    color: #cf373c;
+    background-color: #eceff1;
+    border-color: #dee2e6 #dee2e6 #eceff1;
+}
+
+.nav-tabs a {
+    color: #263238;
+    text-transform: uppercase;
+}
+
+.nav-tabs a:hover {
+    color: #cf373c;
+}
+
+.nav {
+    display: inline-flex;
+    margin-top: 20px;
+}
+
+nav {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+}
+
+.logo-box {
+    display: block;
+    float: left;
+}
+
+.menu {
+    float: right;
+    margin-top: 20px;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 960px;
+    padding: 0 15px;
+}
+
+
+
+a:hover {
+    text-decoration: none;
+}
+
+.button {
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  width: auto;
+  height: auto;
+    padding: 0px 20px;
+  line-height: 45px;
+  border-radius: 15px;
+  margin: 10px 20px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #263238;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0,0,0,.1);
+  transition: .3s;
+    border: none;
+}
+
+.button:hover {
+  background: #cf373c;
+  text-decoration: none;
+  box-shadow: 0 15px 20px rgba(207,55,60,0.37);
+  color: white;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    /* centering of navigation bar  */
+    nav {
+        text-align: center;
+    }
+
+    /* canceled float for logo */
+    .logo-box,
+    .menu {
+        float: none;
+        padding: 0px;
+    }
+
+    header {
+        height: 40%;
+    }
+
+    main {
+        height: 60%;
+    }
+
+    .tab-pane > img {
+        width: 80%
+    }
+
+    .bike-tabs-container {
+        padding-top: 20px;
+    }
+
+    .nav-tabs {
+        margin-top: 20px;
+    }
+
+    iframe {
+        height: 75%;
+    }
+}

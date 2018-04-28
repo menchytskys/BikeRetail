@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Open+Sans+Condensed:300,300i,700&subset=cyrillic,cyrillic-ext');
+
 body {
     font-family: 'Karma', serif;
     font-size: 16px;
     color: black;
-    background-color: #fff;
+    background-color: #ECEFF1;
 
 }
 
@@ -12,8 +14,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Pompiere', cursive;
-    color: black;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #263238;
 }
 
 h1 {
@@ -30,7 +32,7 @@ h3 {
 p {
     font-family: 'Rokkitt', serif;
     font-size: 16px;
- 
+
 }
 
 .container-center {
@@ -70,7 +72,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: black;
     color: white;
-    border: 0 solid white;
+    border: 0px solid white;
     cursor: pointer;
 }
 
@@ -84,33 +86,40 @@ input[type="submit"]:hover {
 }
 .card {
     margin-bottom: 10px;
+    border: none;
+    background-color: #ECEFF1;
 }
 
-button {
-    font-family: 'Pompiere', cursive;
-    padding: 5px 15px;
-    font-size: 22px;
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    border-radius: 10px;
+.button {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0px 20px;
+    line-height: 45px;
+    border-radius: 15px;
+    margin: 10px 20px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #263238;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
+    transition: .2s;
+    border: none;
 }
 
-button:hover {
-    background-color: #212529;
+.button:hover {
+    background: #cf373c;
+    text-decoration: none;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.08);
     color: white;
-    border: 1px solid #212529;
-    cursor: pointer;
+    transform: translateY(-2px);
 }
 
-button>a {
-   color: black;
-}
-
-button>a:hover {
-    color:white;
-    background-color: #212529;
-}
 
 input[type="button"]  {
     font-family: 'Pompiere', cursive;
@@ -125,16 +134,16 @@ input[type="button"]  {
 input[type="button"]:hover {
     background-color: black;
     color: white;
-    border: 0 solid white;
+    border: 0px solid white;
     cursor: pointer;
 }
 
 form {
-    margin-bottom: 0;
+    margin-bottom: 0px;
 }
 
 th {
-text-transform: uppercase;
+    text-transform: uppercase;
     padding: 10px;
 }
 
@@ -146,7 +155,7 @@ select[name="rentTime"] {
     color: white;
     border: none;
     border-radius: 10px;
-    
+
 }
 
 select[name="rentTime"]:hover {
@@ -159,10 +168,9 @@ option {
     padding: 5px;
 }
 
-td>form>input[type="submit"] {
+td>input[type="submit"] {
     font-family: 'Rokkitt', serif;
     padding: 12px 20px;
-    margin-left: 20px;
     font-size: 22px;
     background-color: #ae3248;
     color: white;
@@ -170,43 +178,76 @@ td>form>input[type="submit"] {
     border-radius: 10px;
     font-weight: normal;
 }
-td>form>input[type="submit"]:hover {
+td>input[type="submit"]:hover {
     background-color: #212529;
     color: white;
 }
+
 nav {
     margin: 0;
     padding: 10px 15px;
     list-style: none;
-    border: 1px solid #e5e5e5;
 }
 
 nav>ul>li {
     display: inline-block;
     position: relative;
+    margin: 0px 5px;
+    border-bottom: 1px solid #263238;
 }
 
+li .active {
+    border-bottom: 1px solid #cf373c;
+}
+
+.active a {
+    color: #cf373c;
+}
 
 nav a {
     display: block;
     padding: 8px 10px;
-    color: #0088cc;
+    color: #263238;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 22px;
+}
+nav a:hover {
+    text-decoration: none;
+    color: #cf373c;
 }
 
 nav .sub-menu {
-    margin: 0;
     padding: 0;
     list-style: none;
-    background: #fcf8e3;
+    background: #cf373c;
     position: absolute;
     width: 150px;
-    left: 1px;
     display: none;
+    z-index: 1;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
 }
+
+nav .sub-menu a {
+    color: #ECEFF1;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav .sub-menu a:hover {
+    background-color: white;
+    color: #263238;
+    border-radius: 13px;
+}
+
 
 nav >ul> li:hover .sub-menu {
     display: block;
+    position: absolute;
 }
 
-
-
+.container-fluid {
+    margin-top: 30px;
+}
