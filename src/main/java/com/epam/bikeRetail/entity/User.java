@@ -5,9 +5,11 @@ import com.epam.bikeRetail.dao.Identifiable;
 import java.math.BigDecimal;
 
 /**
- * Class saves information from BD to application
+ * This class describes station of application.
  *
- * @author Stepan Menchytsky
+ * @author Stepan Menchytskiy
+ * @see UserRole
+ * @see Identifiable
  */
 public class User implements Identifiable {
 

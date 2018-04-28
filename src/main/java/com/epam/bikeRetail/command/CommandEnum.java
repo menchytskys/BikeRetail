@@ -7,6 +7,12 @@ import com.epam.bikeRetail.command.user.ReturnBikeCommand;
 import com.epam.bikeRetail.command.user.ShowUserStationCommand;
 import com.epam.bikeRetail.command.user.TakeBikeCommand;
 
+/**
+ * Types of commands.
+ *
+ * @author Stepan Menchytsky
+ * @see ActionCommand
+ */
 public enum CommandEnum {
 
     LOGIN {
@@ -29,53 +35,58 @@ public enum CommandEnum {
             this.command = new ShowAdminStationCommand();
         }
     },
-    SHOW_ALL_STATIONS{
+    SHOW_ALL_STATIONS {
         {
             this.command = new ShowAllStationsCommand();
         }
     },
-    SHOW_ALL_BIKES{
+    SHOW_ALL_BIKES {
         {
             this.command = new ShowAllBikesCommand();
         }
     },
-    ADD_BIKE{
+    ADD_BIKE {
         {
             this.command = new AddBikeCommand();
         }
     },
-    TAKE_BIKE{
+    TAKE_BIKE {
         {
             this.command = new TakeBikeCommand();
         }
     },
-    RETURN_BIKE{
+    RETURN_BIKE {
         {
             this.command = new ReturnBikeCommand();
         }
     },
-    DELETE_BIKE{
+    DELETE_BIKE {
         {
             this.command = new DeleteBikeCommand();
         }
     },
-    MOVE_BIKE_TO_ANOTHER_STATION{
+    MOVE_BIKE_TO_ANOTHER_STATION {
         {
             this.command = new MoveBikeToAnotherStationCommand();
         }
     },
-    SHOW_ALL_USERS{
+    SHOW_ALL_USERS {
         {
             this.command = new ShowAllUsersCommand();
         }
     },
-    CHANGE_USER_STATUS{
+    CHANGE_USER_STATUS {
         {
             this.command = new ChangeUserStatusCommand();
         }
     };
     ActionCommand command;
 
+    /**
+     * Gets current command.
+     *
+     * @return the current command.
+     */
     public ActionCommand getCurrentCommand() {
 
         return command;

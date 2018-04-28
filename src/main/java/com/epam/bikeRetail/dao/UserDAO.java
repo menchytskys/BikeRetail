@@ -100,7 +100,8 @@ public class UserDAO extends AbstractDAO<User> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, User user) throws DAOException {
+    protected void prepareStatementForInsert(PreparedStatement statement,
+                                             User user) throws DAOException {
 
         try {
             statement.setInt(1, user.getId());
@@ -113,13 +114,14 @@ public class UserDAO extends AbstractDAO<User> {
             statement.setBigDecimal(7, user.getBalance());
             statement.setInt(8, user.getRentStatus());
             statement.setInt(9, user.getActiveStatus());
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new DAOException("Can't prepare statement to insert!", e);
         }
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, User user) throws DAOException {
+    protected void prepareStatementForUpdate(PreparedStatement statement,
+                                             User user) throws DAOException {
 
         try {
             statement.setString(1, user.getName());
@@ -132,13 +134,14 @@ public class UserDAO extends AbstractDAO<User> {
             statement.setInt(7, user.getRentStatus());
             statement.setInt(8, user.getActiveStatus());
             statement.setInt(9, user.getId());
-        }  catch (SQLException e){
+        }  catch (SQLException e) {
             throw new DAOException("Can't prepare statement for update!", e);
         }
     }
 
     @Override
-    protected void prepareStatementForDelete(PreparedStatement statement, User object) throws DAOException {
+    protected void prepareStatementForDelete(PreparedStatement statement,
+                                             User object) throws DAOException {
 
     }
 }

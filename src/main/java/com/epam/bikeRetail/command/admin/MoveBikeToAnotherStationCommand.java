@@ -10,14 +10,27 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Command to move bike to another station bike.
+ *
+ * @author Stepan Menchytsky
+ * @see ActionCommand
+ * @see HttpServletRequest
+ */
 public class MoveBikeToAnotherStationCommand implements ActionCommand {
-
-    private final Logger LOGGER = LogManager.getLogger(MoveBikeToAnotherStationCommand.class.getName());
-    private final static String ADMIN_STATIONS_PAGE = "path.page.adminStation";
-    private final static String ERROR_PAGE = "path.page.error";
+    private static final Logger LOGGER = LogManager.getLogger(MoveBikeToAnotherStationCommand.
+                                         class.getName());
+    private static final String ADMIN_STATIONS_PAGE = "path.page.adminStation";
+    private static final String ERROR_PAGE = "path.page.error";
     private static final String BIKE_ID = "bikeId";
     private static final String TO_STATION_ID = "station";
 
+    /**
+     * Implementation of command to move bike.
+     *
+     * @param request HttpServletRequest object.
+     * @return redirect page.
+     */
     @Override
     public String execute(HttpServletRequest request) {
         String page;

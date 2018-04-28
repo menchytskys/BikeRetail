@@ -21,10 +21,11 @@ import java.math.BigDecimal;
  * @see HttpServletRequest
  */
 public class AddBikeCommand implements ActionCommand {
-    private final Logger LOGGER = LogManager.getLogger(AddBikeCommand.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(AddBikeCommand.
+                                                              class.getName());
     private static final String ADD_BIKE_PAGE = "path.page.addBike";
     private static final String ERROR_PAGE = "path.page.error";
-    private static final String DATA_NOT_VALID_MESSAGE_PATH = "message.notValid";
+    private static final String INVALID_DATA_MESSAGE_PATH = "message.notValid";
     private static final String BRAND = "brand";
     private static final String MODEL = "model";
     private static final String STATION_ID = "station";
@@ -48,8 +49,8 @@ public class AddBikeCommand implements ActionCommand {
             String bikeStationId = request.getParameter(STATION_ID);
 
             BikeDataValidator bikeDataValidator = new BikeDataValidator();
-            boolean isBikeDataValid = bikeDataValidator.checkData(brand,
-                    model, bikePriceOnHour);
+            boolean isBikeDataValid = bikeDataValidator.
+                                      checkData(brand, model, bikePriceOnHour);
 
             if (isBikeDataValid) {
                 Bike bike = new Bike();
@@ -63,7 +64,8 @@ public class AddBikeCommand implements ActionCommand {
 
                 page = ConfigurationManager.getProperty(ADD_BIKE_PAGE);
             } else {
-                String property = MessageManager.getProperty(DATA_NOT_VALID_MESSAGE_PATH);
+                String property = MessageManager.
+                                  getProperty(INVALID_DATA_MESSAGE_PATH);
                 request.setAttribute(RESULT_ATTRIBUTE, property);
             }
         } catch (ServiceException e) {

@@ -2,6 +2,13 @@ package com.epam.bikeRetail.entity;
 
 import com.epam.bikeRetail.dao.Identifiable;
 
+/**
+ * This class describes bikeStation of application.
+ *
+ * @author Stepan Menchytskiy
+ * @see UserRole
+ * @see Identifiable
+ */
 public class BikeStation implements Identifiable {
 
     private int id;

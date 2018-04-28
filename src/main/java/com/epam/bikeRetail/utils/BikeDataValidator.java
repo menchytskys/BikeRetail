@@ -3,6 +3,11 @@ package com.epam.bikeRetail.utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ *  Util class for user data validation.
+ *
+ *  @author Stepan Menchytcky
+ */
 public class BikeDataValidator {
 
     private static final String BRAND_AND_PATTERN = "[a-zA-Z0-9_]+{6,}";
@@ -11,18 +16,18 @@ public class BikeDataValidator {
     /**
      * Check user registration data for errors.
      *
-     * @param brand     the user's login.
-     * @param model  the user's password.
+     * @param brand the user's login.
+     * @param model the user's password.
      * @param priceInHour the user's first name.
      * @return result of validation.
      */
-    public boolean checkData(String brand, String model, String priceInHour){
+    public boolean checkData(String brand, String model, String priceInHour) {
 
         boolean isBrandValid = matchPattern(brand, BRAND_AND_PATTERN);
         boolean isModelValid = matchPattern(model, BRAND_AND_PATTERN);
         boolean isPriceInHourValid = matchPattern(priceInHour, PRICE_IN_HOUR_PATTERN);
 
-        return isBrandValid && isModelValid && isPriceInHourValid ;
+        return isBrandValid && isModelValid && isPriceInHourValid;
     }
 
     private boolean matchPattern(String data, String currentPattern) {

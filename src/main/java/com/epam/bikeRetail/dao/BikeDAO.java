@@ -18,14 +18,10 @@ import java.util.List;
  * @see AbstractDAO
  */
 public class BikeDAO extends AbstractDAO<Bike> {
-
     private static final String UPDATE_QUERY = "UPDATE bike SET price=? priceOnHour=? brandName=? model=? WHERE id = ?";
     private static final String CREATE_QUERY = "INSERT INTO bike (priceOnHour, brandName, model) VALUES (?,?,?)";
     private static final String SELECT_QUERY_BY_ID = "SELECT * FROM bike WHERE id=?";
     private static final String DELETE_QUERY = "DELETE FROM bike WHERE id=?";
-
-    private static final String SQL_SELECT_BIKE_ID = "SELECT MAX(id) FROM bike ";
-
     private static final String SELECT_QUERY = "SELECT * FROM bike";
     private static final String SELECT_BIKES_ON_BIKESTATION = "SELECT bike.id, bike.priceOnHour, bike.brandName, bike.model FROM bikestation RIGHT JOIN bike ON bikestation.bike_id = bike.id WHERE bikestation.station_id=?";
 

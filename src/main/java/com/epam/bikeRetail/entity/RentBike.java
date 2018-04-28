@@ -2,6 +2,13 @@ package com.epam.bikeRetail.entity;
 
 import com.epam.bikeRetail.dao.Identifiable;
 
+/**
+ * This class describes rentBike of application.
+ *
+ * @author Stepan Menchytskiy
+ * @see UserRole
+ * @see Identifiable
+ */
 public class RentBike implements Identifiable{
     private int rentTime;
     private int userId;

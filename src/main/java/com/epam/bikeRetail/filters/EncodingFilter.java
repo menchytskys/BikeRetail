@@ -36,7 +36,10 @@ public class EncodingFilter implements Filter {
      * @throws ServletException object if execution of method is failed.
      */
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest,
+                         ServletResponse servletResponse,
+                         FilterChain filterChain) throws IOException,
+                                                         ServletException {
         String codeRequest = servletRequest.getCharacterEncoding();
         if (code != null && !code.equalsIgnoreCase(codeRequest)) {
             servletRequest.setCharacterEncoding(code);

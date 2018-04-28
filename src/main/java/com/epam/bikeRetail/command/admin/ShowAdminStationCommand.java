@@ -13,14 +13,28 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+ * Command to edit station by admin.
+ *
+ * @author Stepan Menchytsky
+ * @see ActionCommand
+ * @see HttpServletRequest
+ */
 public class ShowAdminStationCommand implements ActionCommand {
-    private final Logger LOGGER = LogManager.getLogger(ShowAdminStationCommand.class.getName());
-    private final static String ADMIN_STATIONS_PAGE = "path.page.adminStation";
-    private final static String ERROR_PAGE = "path.page.error";
+    private static final Logger LOGGER = LogManager.getLogger(ShowAdminStationCommand.
+                                         class.getName());
+    private static final String ADMIN_STATIONS_PAGE = "path.page.adminStation";
+    private static final String ERROR_PAGE = "path.page.error";
     private static final String PARAM_STATION_ID = "id";
-    private final static String STATIONS_ATTRIBUTE = "station";
-    private final static String BIKES_ATTRIBUTE = "bikes";
+    private static final String STATIONS_ATTRIBUTE = "station";
+    private static final String BIKES_ATTRIBUTE = "bikes";
 
+    /**
+     * Implementation of command to edit station.
+     *
+     * @param request HttpServletRequest object.
+     * @return redirect page.
+     */
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
@@ -32,17 +46,18 @@ public class ShowAdminStationCommand implements ActionCommand {
         StationService stationService = new StationService();
         BikeService bikeService = new BikeService();
 
-        try{
+        try {
             station = stationService.findStationById(stationId);
             bikes = bikeService.showBikes(stationId);
 
-            if(station != null){
+            if (station != null) {
                 page =  ConfigurationManager.getProperty(ADMIN_STATIONS_PAGE);
             } else {
                 page = ConfigurationManager.getProperty(ERROR_PAGE);
             }
-        } catch (ServiceException e){
+        } catch (ServiceException e) {
             LOGGER.error("Service exception detected.", e);
+            page = ConfigurationManager.getProperty(ERROR_PAGE);
         }
 
         request.setAttribute(STATIONS_ATTRIBUTE, station);

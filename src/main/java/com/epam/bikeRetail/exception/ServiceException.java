@@ -1,7 +1,7 @@
 package com.epam.bikeRetail.exception;
 
 /**
- * The Exception thrown on service level
+ * The type of checked exception thrown on service level
  *
  * @author Stepan Menchytsky
  * @see Exception

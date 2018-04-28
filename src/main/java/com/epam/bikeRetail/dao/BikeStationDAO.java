@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BikeStationDAO extends AbstractDAO<BikeStation> {
-
     private static final String UPDATE_QUERY = "UPDATE bikestation SET station_id=? WHERE bike_id=?";
     private static final String CREATE_QUERY = "INSERT INTO bikestation (bike_id, station_id) VALUES (?,?)";
     private static final String SELECT_QUERY_BY_ID = "SELECT * FROM bikestation WHERE station_id=?";
@@ -60,37 +59,40 @@ public class BikeStationDAO extends AbstractDAO<BikeStation> {
             bikeStation.setStationId(stationId);
 
             return bikeStation;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new DAOException("SQLException detected.", e);
         }
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, BikeStation bikeStation) throws DAOException {
+    protected void prepareStatementForInsert(PreparedStatement statement,
+                                             BikeStation bikeStation) throws DAOException {
         try {
             statement.setInt(1, bikeStation.getBikeId());
             statement.setInt(2, bikeStation.getStationId());
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new DAOException("Can't prepare statement for insert!", e);
         }
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, BikeStation bikeStation) throws DAOException {
+    protected void prepareStatementForUpdate(PreparedStatement statement,
+                                             BikeStation bikeStation) throws DAOException {
         try {
             statement.setInt(1, bikeStation.getStationId());
             statement.setInt(2, bikeStation.getBikeId());
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new DAOException("Can't prepare statement for update!", e);
         }
     }
 
     @Override
-    protected void prepareStatementForDelete(PreparedStatement statement, BikeStation bikeStation) throws DAOException {
+    protected void prepareStatementForDelete(PreparedStatement statement,
+                                             BikeStation bikeStation) throws DAOException {
         try {
             statement.setInt(1, bikeStation.getBikeId());
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new DAOException("Can't prepare statement for delete!", e);
         }
     }

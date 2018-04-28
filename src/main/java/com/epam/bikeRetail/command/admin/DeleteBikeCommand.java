@@ -10,15 +10,27 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Command to delete bike.
+ *
+ * @author Stepan Menchytsky
+ * @see ActionCommand
+ * @see HttpServletRequest
+ */
 public class DeleteBikeCommand implements ActionCommand {
+    private static final Logger LOGGER = LogManager.getLogger(DeleteBikeCommand.
+                                         class.getName());
+    private static final String ERROR_PAGE = "path.page.error";
+    private static final String ADMIN_STATIONS_PAGE = "path.page.adminStation";
+    private static final String PARAM_BIKE_ID = "bikeId";
     private static final String PARAM_STATION_ID = "stationId";
-    private final Logger LOGGER = LogManager.getLogger(DeleteBikeCommand.class.getName());
-    private final static String ERROR_PAGE = "path.page.error";
-    private final static String ADMIN_STATIONS_PAGE = "path.page.adminStation";
-   // private final static String ADMIN_STATIONS_PAGE = "/Controller?command=show_admin_station";
-    private static final String PARAM_BIKE_ID= "bikeId";
 
-
+    /**
+     * Implementation of command to delete bike.
+     *
+     * @param request HttpServletRequest object.
+     * @return redirect page.
+     */
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
@@ -33,10 +45,10 @@ public class DeleteBikeCommand implements ActionCommand {
         BikeService bikeService = new BikeService();
 
         try {
-            bikeService.deleteBike(bikeId,bikeStation);
+            bikeService.deleteBike(bikeId, bikeStation);
 
             page = ConfigurationManager.getProperty(ADMIN_STATIONS_PAGE);
-        } catch (ServiceException e){
+        } catch (ServiceException e) {
             LOGGER.error("Service exception detected.", e);
             return ConfigurationManager.getProperty(ERROR_PAGE);
         }

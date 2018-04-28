@@ -30,7 +30,7 @@ public class StationService {
             StationDAO stationDAO = daoCreator.getStationDAO();
 
             stations = stationDAO.getAll();
-        }catch (DAOException | ConnectionException e){
+        } catch (DAOException | ConnectionException e) {
             throw new ServiceException("SQLException and DAOException detected", e);
         }
 
@@ -44,15 +44,15 @@ public class StationService {
      * @return Object Station.
      * @throws ServiceException when SQLException and DAOException detected.
      */
-    public Station findStationById(String id) throws ServiceException{
+    public Station findStationById(String id) throws ServiceException {
         Station station;
 
-        try(DAOCreator daoCreator = new DAOCreator()) {
+        try (DAOCreator daoCreator = new DAOCreator()) {
             StationDAO stationDAO = daoCreator.getStationDAO();
 
             int stationId = Integer.parseInt(id);
             station = stationDAO.getById(stationId);
-        } catch (DAOException | ConnectionException e){
+        } catch (DAOException | ConnectionException e) {
             throw new ServiceException("SQLException and DAOException detected", e);
         }
 

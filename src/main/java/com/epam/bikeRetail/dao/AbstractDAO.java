@@ -17,7 +17,6 @@ import java.util.List;
  */
 public abstract class AbstractDAO<T extends Identifiable> implements GenericDAO<T> {
 
-    private static final int SUCCESSFUL_RESULT = 1;
     private static final int RESULT_OBJECT = 0;
 
     private Connection connection;
@@ -81,7 +80,7 @@ public abstract class AbstractDAO<T extends Identifiable> implements GenericDAO<
             return null;
         }
         T object = objects.get(RESULT_OBJECT);
-        return object;// objects.get(RESULT_OBJECT);
+        return object;
     }
 
     protected List<T> executeQuery(String query, Object... params) throws DAOException {
@@ -196,8 +195,4 @@ public abstract class AbstractDAO<T extends Identifiable> implements GenericDAO<
         return executeQuery(getSelectQuery());
     }
 
-//    @Override
-//    public List<T> getAllById(Integer id) throws DAOException {
-//        return executeQuery(getSelectQuery(), id);
-//    }
 }

@@ -69,26 +69,29 @@ public class StationDAO extends AbstractDAO<Station> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, Station station) throws DAOException {
+    protected void prepareStatementForInsert(PreparedStatement statement,
+                                             Station station) throws DAOException {
         try {
             statement.setInt(1, station.getId());
             statement.setString(2, station.getNameStation());
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new DAOException("Can't prepare statement to insert!", e);
         }
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, Station station) throws DAOException {
+    protected void prepareStatementForUpdate(PreparedStatement statement,
+                                             Station station) throws DAOException {
         try {
             statement.setString(2, station.getNameStation());
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new DAOException("Can't prepare statement to insert!", e);
         }
     }
 
     @Override
-    protected void prepareStatementForDelete(PreparedStatement statement, Station object) throws DAOException {
+    protected void prepareStatementForDelete(PreparedStatement statement,
+                                             Station object) throws DAOException {
 
     }
 }

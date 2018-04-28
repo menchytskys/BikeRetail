@@ -52,11 +52,6 @@ public class RentBikeDAO extends AbstractDAO<RentBike> {
         return DELETE_QUERY;
     }
 
-//    public  deleteUserDataInRentbike(int userId ) throws DAOException {
-//        User user = executeQueryForSingleResult(FIND_BY_LOGIN_PASSWORD, login, password);
-//        return user;
-//    }
-
     @Override
     protected RentBike build(ResultSet resultSet) throws DAOException {
         try {
@@ -78,7 +73,8 @@ public class RentBikeDAO extends AbstractDAO<RentBike> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, RentBike rentBike) throws DAOException {
+    protected void prepareStatementForInsert(PreparedStatement statement,
+                                             RentBike rentBike) throws DAOException {
         try {
             statement.setInt(1, rentBike.getRentTime());
             statement.setInt(2, rentBike.getUserId());
@@ -89,7 +85,8 @@ public class RentBikeDAO extends AbstractDAO<RentBike> {
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, RentBike rentBike) throws DAOException {
+    protected void prepareStatementForUpdate(PreparedStatement statement,
+                                             RentBike rentBike) throws DAOException {
         try {
             statement.setInt(1, rentBike.getRentTime());
             statement.setInt(2, rentBike.getUserId());
@@ -100,7 +97,8 @@ public class RentBikeDAO extends AbstractDAO<RentBike> {
     }
 
     @Override
-    protected void prepareStatementForDelete(PreparedStatement statement, RentBike rentBike) throws DAOException {
+    protected void prepareStatementForDelete(PreparedStatement statement,
+                                             RentBike rentBike) throws DAOException {
         try {
             statement.setInt(1, rentBike.getUserId());
 

@@ -4,6 +4,13 @@ import com.epam.bikeRetail.dao.Identifiable;
 
 import java.math.BigDecimal;
 
+/**
+ * This class describes bike of application.
+ *
+ * @author Stepan Menchytskiy
+ * @see UserRole
+ * @see Identifiable
+ */
 public class Bike implements Identifiable {
 
     private int id;
@@ -53,6 +60,16 @@ public class Bike implements Identifiable {
 
     public void setPriceOnHour(BigDecimal priceOnHour) {
         this.priceOnHour = priceOnHour;
+    }
+
+    @Override
+    public String toString() {
+        return "Bike{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", brand='" + brand + '\'' +
+                ", priceOnHour=" + priceOnHour +
+                '}';
     }
 }
 

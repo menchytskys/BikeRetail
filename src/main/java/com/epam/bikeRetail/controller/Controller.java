@@ -12,8 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//@WebServlet("/controller")
+
+/**
+ * MVC pattern controller class.
+ *
+ * @author Stepan Menchytsky
+ * @see ActionCommand
+ * @see HttpServletResponse
+ * @see HttpServletRequest
+ */
 public class Controller extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
@@ -40,7 +49,7 @@ public class Controller extends HttpServlet {
 
             page = ConfigurationManager.getProperty("path.page.index");
             request.getSession().setAttribute("nullPage",
-                    MessageManager.getProperty("message.nullpage"));
+                    MessageManager.getProperty("message.nullPage"));
             response.sendRedirect(request.getContextPath() + page);
         }
 

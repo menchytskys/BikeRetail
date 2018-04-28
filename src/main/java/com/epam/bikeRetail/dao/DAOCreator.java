@@ -106,7 +106,7 @@ public class DAOCreator implements AutoCloseable {
         try {
             connection.rollback();
         } catch (SQLException e) {
-            throw new DAOException("Can't rollback data transaction", e);//
+            throw new DAOException("Can't rollback data transaction", e);
         }
     }
     @Override

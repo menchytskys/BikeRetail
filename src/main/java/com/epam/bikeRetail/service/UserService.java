@@ -31,13 +31,13 @@ public class UserService {
     public User login(String login, String password) throws ServiceException {
         User user;
 
-        try(DAOCreator daoCreator = new DAOCreator()) {
+        try (DAOCreator daoCreator = new DAOCreator()) {
 
             UserDAO userDAO = daoCreator.getUserDAO();
             password = PasswordEncoder.encode(password);
 
             user = userDAO.findUserByLoginAndPassword(login, password);
-        }catch ( DAOException | ConnectionException e){
+        } catch (DAOException | ConnectionException e) {
             throw new ServiceException("Exception detected.", e);
         }
 
@@ -53,12 +53,12 @@ public class UserService {
     public List<User> showAllUsers() throws ServiceException{
         List<User> users;
 
-        try(DAOCreator daoCreator = new DAOCreator()){
+        try (DAOCreator daoCreator = new DAOCreator()) {
 
             UserDAO userDAO = daoCreator.getUserDAO();
 
             users = userDAO.getAll();
-        }catch (DAOException | ConnectionException e){
+        }catch (DAOException | ConnectionException e) {
             throw new ServiceException("SQLException and DAOException detected", e);
         }
 
@@ -74,7 +74,7 @@ public class UserService {
     public void changeUserStatus(String id) throws ServiceException{
         int userId = Integer.parseInt(id);
 
-        try(DAOCreator daoCreator = new DAOCreator()){
+        try (DAOCreator daoCreator = new DAOCreator()) {
 
             UserDAO userDAO = daoCreator.getUserDAO();
 
@@ -87,7 +87,7 @@ public class UserService {
                 user.setActiveStatus(1);
                 userDAO.update(user);
             }
-        } catch (DAOException | ConnectionException e){
+        } catch (DAOException | ConnectionException e) {
             throw new ServiceException("SQLException and DAOException detected", e);
         }
     }
@@ -101,7 +101,7 @@ public class UserService {
      */
     public void takeBike(User user, RentBike rentBike) throws ServiceException {
 
-        try(DAOCreator daoCreator = new DAOCreator()) {
+        try (DAOCreator daoCreator = new DAOCreator()) {
             daoCreator.startTransaction();
 
             UserDAO userDAO = daoCreator.getUserDAO();
@@ -110,11 +110,8 @@ public class UserService {
             rentBikeDAO.insert(rentBike);
             userDAO.update(user);
 
-//            userDAO.takeBike(bikeId, userId, rentTime);
-//            userDAO.updateUserIsTakeBike(userIdStr, 1);
-
             daoCreator.commitTransaction();
-        } catch (DAOException | ConnectionException e){
+        } catch (DAOException | ConnectionException e) {
             throw new ServiceException("SQLException and DAOException detected", e);
         }
     }
@@ -128,7 +125,7 @@ public class UserService {
      */
     public void returnBike(String stationId, User user) throws ServiceException {
 
-        try(DAOCreator daoCreator = new DAOCreator()) {
+        try (DAOCreator daoCreator = new DAOCreator()) {
             daoCreator.startTransaction();
 
             UserDAO userDAO = daoCreator.getUserDAO();
@@ -140,7 +137,6 @@ public class UserService {
             RentBike rentBike = rentBikeDAO.getById(userId);
 
             int bikeId = rentBike.getBikeId();
-            String bikeIdStr = Integer.toString(bikeId);
 
             BikeStation bikeStation = new BikeStation(bikeId, Integer.parseInt(stationId));
             bikeStationDAO.update(bikeStation);

@@ -25,20 +25,19 @@ public class ConnectionPool {
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class.getName());
     private static final Lock LOCK = new ReentrantLock();
 
-    private static ConnectionPool instance = null;
-    private static AtomicBoolean isInstanceExist = new AtomicBoolean(false);
-
     private static final ResourceBundle RESOURCE = ResourceBundle.getBundle("database");
     private static final String POOL_SIZE = RESOURCE.getString("db.poolsize");
     private static final int INT_POOL_SIZE = Integer.parseInt(POOL_SIZE);
-    private final Semaphore semaphore = new Semaphore(INT_POOL_SIZE, true);
+    private static final Semaphore semaphore = new Semaphore(INT_POOL_SIZE, true);
 
     private static final String URL = RESOURCE.getString("db.url");
     private static final String USER = RESOURCE.getString("db.user");
     private static final String PASS = RESOURCE.getString("db.password");
     private static final String DRIVER = RESOURCE.getString("db.driver");
+    private static final Queue<Connection> connections = new LinkedList<>();
+    private static ConnectionPool instance = null;
+    private static AtomicBoolean isInstanceExist = new AtomicBoolean(false);
 
-    private final Queue<Connection> connections = new LinkedList<>();
 
     private ConnectionPool() throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
         Class.forName(DRIVER).newInstance();
