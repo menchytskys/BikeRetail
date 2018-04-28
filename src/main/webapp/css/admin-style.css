@@ -40,7 +40,6 @@ p {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
-    position: relative;
     padding: 20px;
     text-align: center;
 }
@@ -51,8 +50,6 @@ p {
     width: 100%;
     max-width: 500px;
     padding: 0 15px;
-    position: relative;
-    padding: 20px;
     text-align: center;
 }
 
@@ -72,7 +69,6 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: black;
     color: white;
-    border: 0px solid white;
     cursor: pointer;
 }
 
@@ -96,7 +92,7 @@ input[type="submit"]:hover {
     display: inline-block;
     width: auto;
     height: auto;
-    padding: 0px 20px;
+    padding: 0 20px;
     line-height: 45px;
     border-radius: 15px;
     margin: 10px 20px;
@@ -134,12 +130,12 @@ input[type="button"]  {
 input[type="button"]:hover {
     background-color: black;
     color: white;
-    border: 0px solid white;
+    border: 0 solid white;
     cursor: pointer;
 }
 
 form {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 th {
@@ -192,7 +188,7 @@ nav {
 nav>ul>li {
     display: inline-block;
     position: relative;
-    margin: 0px 5px;
+    margin: 0 5px;
     border-bottom: 1px solid #263238;
 }
 
