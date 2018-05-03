@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Karma|Pompiere|Rokkitt" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/admin-style.css">
 </head>
@@ -15,8 +16,8 @@
     <hr>
     <h3>Hello, ${user.name}!</h3>
     <h3>Your balance: ${user.balance}</h3>
-    <button><a href="Controller?command=logout">log out</a></button>
-    <button><a href="/jsp/user/user.jsp">to stations</a></button>
+    <a class="button" href="Controller?command=logout">log out</a>
+    <a class="button" href="/jsp/user/user.jsp">to stations</a>
     <hr/>
 
     <c:choose>
@@ -25,7 +26,7 @@
                 <input type="hidden" name="command" value="return_bike"/>
                 <input type="hidden" name="userId" value="${user.id}">
                 <input type="hidden" name="stationId" value="${station.id}">
-                <input type="submit"  value="return bike"/>
+                <input type="submit" value="return bike"/>
             </form>
         </c:when>
         <c:when test="${user.rentStatus == 0}">
@@ -65,7 +66,6 @@
                     </tbody>
                 </table>
             </div>
-
         </c:when>
     </c:choose>
 </div>

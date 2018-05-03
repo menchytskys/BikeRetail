@@ -25,7 +25,7 @@
                 ${loginError}
             </div>
         </div>
-        <input type="submit" value="log in"/>
+        <input class="button" type="submit" value="log in"/>
     </form>
 </div>
 </body></html>

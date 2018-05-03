@@ -1,6 +1,7 @@
 package com.epam.bikeRetail.command;
 
 import com.epam.bikeRetail.command.admin.*;
+import com.epam.bikeRetail.command.common.ChangeLanguageCommand;
 import com.epam.bikeRetail.command.common.LoginCommand;
 import com.epam.bikeRetail.command.common.LogoutCommand;
 import com.epam.bikeRetail.command.user.ReturnBikeCommand;
@@ -73,6 +74,11 @@ public enum CommandEnum {
     SHOW_ALL_USERS {
         {
             this.command = new ShowAllUsersCommand();
+        }
+    },
+    CHANGE_LANGUAGE {
+        {
+            this.command = new ChangeLanguageCommand();
         }
     },
     CHANGE_USER_STATUS {

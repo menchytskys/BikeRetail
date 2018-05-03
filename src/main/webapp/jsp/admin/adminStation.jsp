@@ -16,7 +16,7 @@
     <h1>Admin Page</h1>
     <nav>
         <ul>
-            <li class='active'><a href='${pageContext.request.contextPath}/jsp/admin/admin.jsp'>Stations</a>
+            <li class='active'><a href='jsp/admin/admin.jsp'>Stations</a>
                 <ul class='sub-menu'>
                     <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=1">Red</a></li>
                     <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=2">Green</a></li>

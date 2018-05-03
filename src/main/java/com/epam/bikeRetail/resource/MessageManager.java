@@ -1,5 +1,6 @@
 package com.epam.bikeRetail.resource;
 
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -8,9 +9,10 @@ import java.util.ResourceBundle;
  * @author Stepan Menchytsky
  */
 public class MessageManager {
-    private final static String RESOURCES = "messages";
+    public static final Locale DEFAULT_LOCALE = new Locale("", "");
+    private static final  String RESOURCES = "messages";
 
-    private final static ResourceBundle resourceBundle = ResourceBundle.getBundle(RESOURCES);
+    private static ResourceBundle resourceBundle = ResourceBundle.getBundle(RESOURCES, DEFAULT_LOCALE);
 
     private MessageManager() {
     }
@@ -23,5 +25,14 @@ public class MessageManager {
      */
     public static String getProperty(String key) {
         return resourceBundle.getString(key);
+    }
+
+    /**
+     * Change language of jsp page.
+     *
+     * @param locale the locale.
+     */
+    public static void changeLocale(Locale locale) {
+        resourceBundle = ResourceBundle.getBundle(RESOURCES, locale);
     }
 }

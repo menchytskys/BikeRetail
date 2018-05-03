@@ -84,6 +84,5 @@ public class LoginCommand implements ActionCommand {
             default:
                 return ConfigurationManager.getProperty(MAIN_PAGE_PATH);
         }
-
     }
 }
