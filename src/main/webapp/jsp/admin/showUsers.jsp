@@ -1,5 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="tag" tagdir="/WEB-INF/tags" %>
+
+<fmt:bundle basename="page_content">
+    <fmt:message key="users.name" var="name"/>
+    <fmt:message key="users.last_name" var="lastname"/>
+    <fmt:message key="users.balance" var="balance"/>
+    <fmt:message key="users.user_status" var="status"/>
+    <fmt:message key="users.blocked" var="blocked"/>
+    <fmt:message key="users.active" var="active"/>
+    <fmt:message key="users.change_status" var="status"/>
+</fmt:bundle>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -12,32 +25,15 @@
 </head>
 
 <body>
+<tag:adminMenu/>
 <div class="container-center">
-    <h1>Admin Page</h1>
-    <nav>
-        <ul>
-            <li><a href='jsp/admin/admin.jsp'>Stations</a>
-                <ul class='sub-menu'>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=1">Red</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=2">Green</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=3">Blue</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=4">Black</a></li>
-                </ul>
-            </li>
-            <li class='active'><a href="${pageContext.request.contextPath}/Controller?command=show_all_users">Users</a></li>
-            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_bikes">Bikes</a></li>
-            <li><a href="${pageContext.request.contextPath}/Controller?command=logout">log out</a></li>
-        </ul>
-    </nav>
-</div>
-
 <table>
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Last Name</th>
-        <th>Balance</th>
-        <th>User status</th>
+        <th>${name}</th>
+        <th>${lastname}</th>
+        <th>${balance}</th>
+        <th>${status}</th>
         <th></th>
     </tr>
     </thead>
@@ -50,20 +46,20 @@
             <td>
                 <c:choose>
                     <c:when test="${user.activeStatus == 1}">
-                        Blocked
+                        ${blocked}
                     </c:when>
                     <c:when test="${user.activeStatus == 0}">
-                        Active
+                        ${active}
                     </c:when>
                 </c:choose>
             </td>
             <td>
-                <button><a href="${pageContext.request.contextPath}/Controller?command=change_user_status&userId=${user.id}">Change status</a></button>
+                <a class="button" href="${pageContext.request.contextPath}/Controller?command=change_user_status&userId=${user.id}">${status}</a>
             </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<a href="${pageContext.request.contextPath}/jsp/admin/admin.jsp">back</a>
+</div>
 </body>
 </html>

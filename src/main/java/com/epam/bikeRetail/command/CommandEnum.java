@@ -16,72 +16,83 @@ import com.epam.bikeRetail.command.user.TakeBikeCommand;
  */
 public enum CommandEnum {
 
-    LOGIN {
+    /**
+     * Common commands.
+     */
+    COMMON_LOGIN {
         {
             this.command = new LoginCommand();
         }
     },
-    LOGOUT {
+    COMMON_LOGOUT {
         {
             this.command = new LogoutCommand();
         }
     },
-    SHOW_USER_STATION {
-        {
-            this.command = new ShowUserStationCommand();
-        }
-    },
-    SHOW_ADMIN_STATION {
-        {
-            this.command = new ShowAdminStationCommand();
-        }
-    },
-    SHOW_ALL_STATIONS {
-        {
-            this.command = new ShowAllStationsCommand();
-        }
-    },
-    SHOW_ALL_BIKES {
-        {
-            this.command = new ShowAllBikesCommand();
-        }
-    },
-    ADD_BIKE {
-        {
-            this.command = new AddBikeCommand();
-        }
-    },
-    TAKE_BIKE {
-        {
-            this.command = new TakeBikeCommand();
-        }
-    },
-    RETURN_BIKE {
-        {
-            this.command = new ReturnBikeCommand();
-        }
-    },
-    DELETE_BIKE {
-        {
-            this.command = new DeleteBikeCommand();
-        }
-    },
-    MOVE_BIKE_TO_ANOTHER_STATION {
-        {
-            this.command = new MoveBikeToAnotherStationCommand();
-        }
-    },
-    SHOW_ALL_USERS {
-        {
-            this.command = new ShowAllUsersCommand();
-        }
-    },
-    CHANGE_LANGUAGE {
+    COMMON_CHANGE_LANGUAGE {
         {
             this.command = new ChangeLanguageCommand();
         }
     },
-    CHANGE_USER_STATUS {
+
+    /**
+     * User commands.
+     */
+    USER_TAKE_BIKE {
+        {
+            this.command = new TakeBikeCommand();
+        }
+    },
+    USER_RETURN_BIKE {
+        {
+            this.command = new ReturnBikeCommand();
+        }
+    },
+    USER_SHOW_USER_STATION {
+        {
+            this.command = new ShowUserStationCommand();
+        }
+    },
+
+    /**
+     * Admin commands.
+     */
+    ADMIN_DELETE_BIKE {
+        {
+            this.command = new DeleteBikeCommand();
+        }
+    },
+    ADMIN_MOVE_BIKE_TO_ANOTHER_STATION {
+        {
+            this.command = new MoveBikeToAnotherStationCommand();
+        }
+    },
+    ADMIN_SHOW_ALL_USERS {
+        {
+            this.command = new ShowAllUsersCommand();
+        }
+    },
+    ADMIN_SHOW_ADMIN_STATION {
+        {
+            this.command = new ShowAdminStationCommand();
+        }
+    },
+    ADMIN_SHOW_ALL_STATIONS {
+        {
+            this.command = new ShowAllStationsCommand();
+        }
+    },
+    ADMIN_SHOW_ALL_BIKES {
+        {
+            this.command = new ShowAllBikesCommand();
+        }
+    },
+    ADMIN_ADD_BIKE {
+        {
+            this.command = new AddBikeCommand();
+        }
+    },
+    ADMIN_CHANGE_USER_STATUS {
         {
             this.command = new ChangeUserStatusCommand();
         }

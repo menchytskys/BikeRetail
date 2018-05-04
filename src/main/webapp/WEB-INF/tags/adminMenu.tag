@@ -20,30 +20,17 @@
     <h1>${admin_page}</h1>
     <nav>
         <ul>
-            <li><a href="jsp/admin/admin.jsp">${stations}</a>
+            <li><a href="#">${stations}</a>
                 <ul class='sub-menu'>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=1">${red}</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=2">${green}</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=3">${blue}</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=4">${black}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=admin_show_admin_station&id=1">${red}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=admin_show_admin_station&id=2">${green}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=admin_show_admin_station&id=3">${blue}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Controller?command=admin_show_admin_station&id=4">${black}</a></li>
                 </ul>
             </li>
-            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_users">${users}</a></li>
-            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_bikes">${bikes}</a></li>
-            <li><a href="${pageContext.request.contextPath}/Controller?command=logout">${logout}</a></li>
-            <li> <a href="#">${language}</a>
-                <ul class="sub-menu">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/Controller?command=change_language&locale=ru">RU</a>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/Controller?command=change_language&locale=by">BY</a>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/Controller?command=change_language&locale=en">EN</a>
-                    </li>
-                </ul>
-            </li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=admin_show_all_users">${users}</a></li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=admin_show_all_bikes">${bikes}</a></li>
+            <li><a href="${pageContext.request.contextPath}/Controller?command=common_logout">${logout}</a></li>
         </ul>
     </nav>
 </div>

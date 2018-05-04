@@ -20,6 +20,13 @@ import java.util.List;
  * @see User
  */
 public class UserService {
+
+//    private DAOCreator daoCreator;
+//
+//    public UserService(DAOCreator daoCreator) {
+//        this.daoCreator =  new DAOCreator();
+//    }
+
     /**
      * Method that return authorized user.
      *

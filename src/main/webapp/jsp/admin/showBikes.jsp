@@ -1,5 +1,20 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="tag" tagdir="/WEB-INF/tags" %>
+
+<fmt:bundle basename="page_content">
+    <fmt:message key="menu.bike_brand" var="brand"/>
+    <fmt:message key="menu.bike_model" var="model"/>
+    <fmt:message key="menu.price_on_hour" var="price"/>
+    <fmt:message key="menu.add_bike" var="add"/>
+    <fmt:message key="menu.station_Red" var="red"/>
+    <fmt:message key="menu.station_Green" var="green"/>
+    <fmt:message key="menu.station_Blue" var="blue"/>
+    <fmt:message key="menu.station_Black" var="black"/>
+    <fmt:message key="menu.station" var="Station"/>
+    <fmt:message key="menu.delete_bike" var="delete"/>
+</fmt:bundle>
 <html>
 <head>
     <meta charset="utf-8">
@@ -12,50 +27,32 @@
 </head>
 
 <body>
+<tag:adminMenu/>
 <div class="container-center">
-    <h1>Admin Page</h1>
-    <nav>
-        <ul>
-            <li><a href='jsp/admin/admin.jsp'>Stations</a>
-                <ul class='sub-menu'>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=1">Red</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=2">Green</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=3">Blue</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Controller?command=show_admin_station&id=4">Black</a></li>
-                </ul>
-            </li>
-            <li><a href="${pageContext.request.contextPath}/Controller?command=show_all_users">Users</a></li>
-            <li class='active'><a href="${pageContext.request.contextPath}/Controller?command=show_all_bikes">Bikes</a></li>
-            <li><a href="${pageContext.request.contextPath}/Controller?command=logout">log out</a></li>
-        </ul>
-    </nav>
-</div>
-
     <form name="addBikeForm" method="POST" action="${pageContext.request.contextPath}/Controller">
         <input type="hidden" name="command" value="add_bike" />
-        Brand:<br/>
+        <p>${brand}</p>
         <input type="text" name="brand" value="" />
-        <br/> Model:<br/>
+        <p> ${model}</p>
         <input type="text" name="model" value="" />
-        <br/> Price on Hour: <br/>
+        <p> ${price} </p>
         <input type="text" name="priceOnHour" value="" />
         <br/>
-        <select name="station">
-            <option value="1">Station red</option>
-            <option value="2">Station green</option>
-            <option value="3">Station blue</option>
-            <option value="4">Station black</option>
+        <select name=${Station}>
+            <option value="1">${red}</option>
+            <option value="2">${green}</option>
+            <option value="3">${blue}</option>
+            <option value="4">${black}</option>
         </select>
-        <input type="submit" value="add bike" />
-        <%--<a href="${pageContext.request.contextPath}/jsp/admin/admin.jsp">back</a>--%>
+        <input type="submit" value=${add} />
     </form>
 
-<table>
-    <thead>
+<table class='table table-hover'>
+    <thead class='thead-dark'>
     <tr>
-        <th>bike brand</th>
-        <th>bike model</th>
-        <th>price on hour</th>
+        <th>${brand}</th>
+        <th>${model}</th>
+        <th>${price}</th>
         <th></th>
     </tr>
     </thead>
@@ -70,28 +67,13 @@
                     <input type="hidden" name="command" value="delete_bike" />
                     <input type="hidden" name="bikeId" value="${bike.id}" />
                     <input type="hidden" name="stationId" value="${station.id}" />
-                    <input type="submit" value="delete bike" />
+                    <input class='table-button' type="submit" value=${delete} />
                 </form>
             </td>
-
-            <%--<td>--%>
-                <%--<form name="MoveBikeForm" method="POST" action="${pageContext.request.contextPath}/Controller">--%>
-                    <%--<input type="hidden" name="command" value="move_bike_to_another_station" />--%>
-                    <%--<br/>--%>
-                    <%--<select name="station">--%>
-                        <%--<option value="1">Station red</option>--%>
-                        <%--<option value="2">Station green</option>--%>
-                        <%--<option value="3">Station blue</option>--%>
-                        <%--<option value="4">Station black</option>--%>
-                    <%--</select>--%>
-                    <%--<br/>--%>
-                    <%--<input type="hidden" name="bikeId" value="${bike.id}">--%>
-                    <%--<input type="submit" value="move to another station" />--%>
-                <%--</form>--%>
-            <%--</td>--%>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Open+Sans+Condensed:300,300i,700&subset=cyrillic,cyrillic-ext');
 
 body {
-    font-family: 'Karma', serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 16px;
     color: black;
     background-color: #ECEFF1;
@@ -25,13 +25,15 @@ h2 {
     font-size: 38px;
 }
 h3 {
-    font-family: 'Karma', serif;
-    font-size: 22px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 30px;
 }
 
 p {
-    font-family: 'Rokkitt', serif;
-    font-size: 16px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 5px;
 
 }
 
@@ -55,28 +57,7 @@ p {
 
 
 
-input[type="submit"] {
-    font-family: 'Pompiere', cursive;
-    padding: 10px 20px;
-    font-size: 32px;
-    background-color: #ae2948;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-}
-
-input[type="submit"]:hover {
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-
-.form-control {
-    width: 100%;
-    border: 2px dotted #ae3248;
-}
-
+/*Stations card style */
 .card-body {
     border-radius: 15px;
 }
@@ -85,7 +66,7 @@ input[type="submit"]:hover {
     border: none;
     background-color: #ECEFF1;
 }
-
+/*Buttons style */
 .button {
     text-decoration: none;
     outline: none;
@@ -116,88 +97,156 @@ input[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
-
-input[type="button"]  {
-    font-family: 'Pompiere', cursive;
-    padding: 10px 20px;
-    font-size: 32px;
-    background-color: white;
-    color: black;
-    border: none;
-    border-radius: 10px;
-}
-
-input[type="button"]:hover {
-    background-color: black;
-    color: white;
-    border: 0 solid white;
-    cursor: pointer;
-}
-
+/*Forms style*/
 form {
     margin-bottom: 0;
 }
 
-th {
-    text-transform: uppercase;
+input,
+textarea {
+    outline: none;
+}
+
+input[type="text"] {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
     padding: 10px;
+    color: #212529;
+    border: 1px solid #212529;
+    border-radius: 10px;
+    background-color: white;
+    width: 40%;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+input[type="text"]:focus {
+    background-color: white;
+    border: 1px solid #cf373c;
 }
 
 select[name="rentTime"] {
-    font-family: 'Rokkitt', serif;
-    padding: 10px 20px;
-    font-size: 22px;
-    background-color: #ae3248;
-    color: white;
-    border: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 5px 10px;
     border-radius: 10px;
+    color: #263238;
+    cursor: pointer;
 
 }
 
 select[name="rentTime"]:hover {
     cursor: pointer;
-    background-color: #212529;
 }
 
-
-option {
-    padding: 5px;
-}
-
-td>input[type="submit"] {
-    font-family: 'Rokkitt', serif;
-    padding: 12px 20px;
-    font-size: 22px;
-    background-color: #ae3248;
-    color: white;
-    border: none;
+select[name="station"] {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 5px 10px;
     border-radius: 10px;
-    font-weight: normal;
+    color: #263238;
+    cursor: pointer;
 }
-td>input[type="submit"]:hover {
-    background-color: #212529;
+
+/* Submit button style */
+input[type="submit"] {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0 20px;
+    line-height: 45px;
+    border-radius: 15px;
+    margin: 10px 20px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #263238;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
+    transition: .2s;
+    border: none;
+}
+
+input[type="submit"]:hover {
+        background: #cf373c;
+    text-decoration: none;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.08);
+    color: white;
+    cursor: pointer;
+}
+
+
+/*Table style*/
+th {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+.thead-dark {
+    background-color: #263238;
+}
+
+/*Button in table style*/
+.table-button {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0 15px;
+    line-height: 35px;
+    border-radius: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #263238;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
+    transition: .2s;
+    border: none;
+}
+
+.table-button:hover {
+    background: #cf373c;
+    text-decoration: none;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.08);
     color: white;
 }
 
+
+/*Navigation (admin menu) style*/
 nav {
     margin: 0;
     padding: 10px 15px;
     list-style: none;
+}
+nav>ul {
+    padding: 0;
 }
 
 nav>ul>li {
     display: inline-block;
     position: relative;
     margin: 0 5px;
-    border-bottom: 1px solid #263238;
+   
 }
 
-li .active {
-    border-bottom: 1px solid #cf373c;
+.active:hover {
+    border-bottom: none;
 }
 
 .active a {
     color: #cf373c;
+    border-bottom: 1px solid #cf373c;
 }
 
 nav a {
@@ -208,10 +257,12 @@ nav a {
     text-transform: uppercase;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 22px;
+    border-bottom: 1px solid #263238;
 }
 nav a:hover {
     text-decoration: none;
     color: #cf373c;
+    border-bottom: 1px solid #cf373c;
 }
 
 nav .sub-menu {
@@ -230,6 +281,7 @@ nav .sub-menu a {
     color: #ECEFF1;
     text-decoration: none;
     font-size: 18px;
+     border: none;
 }
 
 nav .sub-menu a:hover {
@@ -242,8 +294,17 @@ nav .sub-menu a:hover {
 nav >ul> li:hover .sub-menu {
     display: block;
     position: absolute;
+   
 }
 
 .container-fluid {
     margin-top: 30px;
+}
+/* Responsive */
+
+@media (max-width: 480px) {
+
+    input[type="text"] {
+        width: 90%;
+    }
 }

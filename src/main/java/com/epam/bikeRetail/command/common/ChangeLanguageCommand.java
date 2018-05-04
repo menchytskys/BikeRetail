@@ -36,8 +36,7 @@ public class ChangeLanguageCommand implements ActionCommand {
     private static final String USER_ATTRIBUTE = "user";
 
     private static final String MAIN_PAGE_PATH = "path.page.main";
-    private static final String USER_PAGE_PATH = "path.page.user";
-    private static final String ADMIN_PAGE_PATH = "path.page.admin";
+
 
     /**
      * Implementation of commands to change language.
@@ -73,24 +72,7 @@ public class ChangeLanguageCommand implements ActionCommand {
 
         LOGGER.info(String.format("Language was changed successful. Current language is - %s.", localeValue));
 
-        HttpSession session = request.getSession();
-//        User user = (User)session.getAttribute(USER_ATTRIBUTE);
-
-        return ConfigurationManager.getProperty(ADMIN_PAGE_PATH);
+        return ConfigurationManager.getProperty(MAIN_PAGE_PATH);
     }
-
-//    private String userRoleRedirect(User user) {
-//        UserRole userRole = user.getUserRole();
-//
-//        switch (userRole) {
-//            case USER:
-//                return ConfigurationManager.getProperty(USER_PAGE_PATH);
-//            case ADMIN:
-//                return ConfigurationManager.getProperty(ADMIN_PAGE_PATH);
-//            default:
-//                return ConfigurationManager.getProperty(MAIN_PAGE_PATH);
-//        }
-//
-//    }
 }
 
